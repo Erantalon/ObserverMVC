@@ -27,6 +27,9 @@ namespace observer_mvc { namespace modules {
 	DLL_API OBSModel* retrieveModel(int p_id);										// Retrieve a model
 	DLL_API OBSView* retrieveView(int p_id);										// Retrieve a view
 	DLL_API OBSController* retrieveController(int p_id);							// Retrieve a controller
+	DLL_API bool removeModel(int p_id, bool p_autoDelete = false);					// Remove a model from manager
+	DLL_API bool removeView(int p_id, bool p_autoDelete = false);					// Remove a view from manager
+	DLL_API bool removeController(int p_id, bool p_autoDelete = false);				// Remove a controller from manager
 	DLL_API void clearManager();													// Clear all mvc modules from the manager and delete the current singleton instance
 }};
 

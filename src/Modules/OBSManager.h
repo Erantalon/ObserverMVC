@@ -47,15 +47,19 @@ namespace observer_mvc { namespace modules {
 		static OBSManager* getInstance();							// Returns the singleton instance of MVC_Manager class
 		static void clear();										// Clear all module maps
 
-		void registerModel(int p_id, OBSModel* p_model);				// Register a new model
-		void registerView(int p_id, OBSView* p_view);					// Register a new view
-		void registerController(int p_id, OBSController* p_view);		// Register a new controller
+		void registerModel(int p_id, OBSModel* p_model);			// Register a new model
+		void registerView(int p_id, OBSView* p_view);				// Register a new view
+		void registerController(int p_id, OBSController* p_view);	// Register a new controller
+
+		bool removeModel(int p_id, bool p_autoDelete = false);		// Remove a model by its id
+		bool removeView(int p_id, bool p_autoDelete = false);		// Remove a view by its id
+		bool removeController(int p_id, bool p_autoDelete = false);	// Remove a controller by its id
 
 		void registerViewEvent(int p_eventId, OBSView* p_view);		// Register a new event associated with a specific view
 
-		OBSModel* retrieveModel(int p_id);								// Retrieve a model by its id
-		OBSView* retrieveView(int p_id);								// Retrieve a view by its id
-		OBSController* retrieveController(int p_id);					// Retriecve a controller by its id
+		OBSModel* retrieveModel(int p_id);							// Retrieve a model by its id
+		OBSView* retrieveView(int p_id);							// Retrieve a view by its id
+		OBSController* retrieveController(int p_id);				// Retriecve a controller by its id
 
 		void notify(INotification* p_notification);					// Send a notification for whichever module is associated with
 	};

@@ -125,6 +125,85 @@ namespace observer_mvc { namespace modules {
 	}
 
 	/**
+	Removes a model from the manager. It can also delete the pointer
+
+	@param p_id - it's an integer, representing the module id
+	@param p_autoDelete - flag indicating if the pointer will be deleted
+	@return True, if model was removed from manager. False, otherwise.
+	*/
+	bool OBSManager::removeModel(int p_id, bool p_autoDelete)
+	{
+		bool notifierFound = false;
+		OBSModel* model = this->m_modelMap[p_id];
+		if (model != NULL)
+		{
+			notifierFound = true;
+			if (p_autoDelete)
+			{
+				delete model;
+				model = NULL;
+			}
+		}
+
+		this->m_modelMap.erase(p_id);
+
+		return notifierFound;
+	}
+
+	/**
+	Removes a view from the manager. It can also delete the pointer
+
+	@param p_id - it's an integer, representing the view id
+	@param p_autoDelete - flag indicating if the pointer will be deleted
+	@return True, if view was removed from manager. False, otherwise.
+	*/
+	bool OBSManager::removeView(int p_id, bool p_autoDelete)
+	{
+		bool notifierFound = false;
+		OBSView* view = this->m_viewMap[p_id];
+		if (view != NULL)
+		{
+			notifierFound = true;
+			if (p_autoDelete)
+			{
+				delete view;
+				view = NULL;
+			}
+		}
+
+		this->m_viewMap.erase(p_id);
+
+		return notifierFound;
+	}
+
+	/**
+	Removes a controller from the manager. It can also delete the pointer
+
+	@param p_id - it's an integer, representing the controller id
+	@param p_autoDelete - flag indicating if the pointer will be deleted
+	@return True, if controller was removed from manager. False, otherwise.
+	*/
+	bool OBSManager::removeController(int p_id, bool p_autoDelete)
+	{
+		bool notifierFound = false;
+		OBSController* controller = this->m_controllerMap[p_id];
+		if (controller != NULL)
+		{
+			notifierFound = true;
+			if (p_autoDelete)
+			{
+				delete controller;
+				controller = NULL;
+			}
+		}
+
+		this->m_controllerMap.erase(p_id);
+
+		return notifierFound;
+	}
+
+
+	/**
 	Register a new view event into manager and bind it with an already registered view
 
 	@param p_eventId - it's an integer, representing the event id

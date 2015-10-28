@@ -29,7 +29,10 @@
 
 # VS2015 files
 *.suo
+*.opensdf
+*.sdf
 
 # Directories
 Build/
 obj/
+ipch/

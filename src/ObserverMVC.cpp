@@ -87,6 +87,42 @@ namespace observer_mvc { namespace modules {
 	}
 
 	/**
+	Removes a model from the manager. It can also delete the pointer
+
+	@param p_id - it's an integer, representing the module id
+	@param p_autoDelete - flag indicating if the pointer will be deleted
+	@return True, if model was removed from manager. False, otherwise.
+	*/
+	DLL_API bool removeModel(int p_id, bool p_autoDelete)
+	{
+		return OBSManager::getInstance()->removeModel(p_id, p_autoDelete);
+	}
+
+	/**
+	Removes a view from the manager. It can also delete the pointer
+
+	@param p_id - it's an integer, representing the module id
+	@param p_autoDelete - flag indicating if the pointer will be deleted
+	@return True, if view was removed from manager. False, otherwise.
+	*/
+	DLL_API bool removeView(int p_id, bool p_autoDelete)
+	{
+		return OBSManager::getInstance()->removeView(p_id, p_autoDelete);
+	}
+
+	/**
+	Removes a controller from the manager. It can also delete the pointer
+
+	@param p_id - it's an integer, representing the module id
+	@param p_autoDelete - flag indicating if the pointer will be deleted
+	@return True, if controller was removed from manager. False, otherwise.
+	*/
+	DLL_API bool removeController(int p_id, bool p_autoDelete)
+	{
+		return OBSManager::getInstance()->removeController(p_id, p_autoDelete);
+	}
+
+	/**
 	Clear all mvc modules from the manager and delete the current singleton instance
 	@return
 	*/
